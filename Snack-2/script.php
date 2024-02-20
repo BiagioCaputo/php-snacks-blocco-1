@@ -1,10 +1,10 @@
 <?php
-            $name = $_POST["firstname"];
-            $email = $_POST["email"];
-            $age = $_POST["age"];
+            $name = $_POST["firstname"] ?? '';
+            $email = $_POST["email"] ?? '';
+            $age = $_POST["age"] ?? '';
             $passed = "nope"; 
 
-            if (strlen($name) > 3 && strpos($email, "@") !== false && strpos($email, ".") !== false && is_numeric($age)) {
+            if (mb_strlen(trim($name)) > 3 && str_contains($email, "@")  && str_contains($email, ".")  && is_numeric($age)) {
                 $passed = "passed";
             }
         ?>
